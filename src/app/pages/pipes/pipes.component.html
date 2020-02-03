@@ -1,0 +1,71 @@
+
+
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-header">Pipes</div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <th>Pipe</th>
+                        <th>Origen</th>
+                        <th>Expresión</th>
+                        <th>Resultado</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>UpperCase</td>
+                            <td>{{ miUperCase }}</td>
+                            <td>UpperCase | upercase </td>
+                            <td>{{ miUperCase | uppercase }}</td>
+                        </tr>
+                        <tr>
+                            <td>LowerCase</td>
+                            <td>{{ miUperCase }}</td>
+                            <td>miLowerCase | lowercase </td>
+                            <td>{{ miLowerCase | lowercase }}</td>
+                        </tr>
+                        <tr>
+                            <td>Slice</td>
+                            <td>{{ cadenaTexto }}</td>
+                            <td>cadenaTexto | slice:1:3 </td>
+                            <td>{{ cadenaTexto | slice:1:5  }}</td>
+                        </tr>
+                        <tr>
+                            <td>Titlecase</td>
+                            <td>{{ cadenaTexto }}</td>
+                            <td>cadenaTexto | titlecase </td>
+                            <td>{{ cadenaTexto | titlecase  }}</td>
+                        </tr>
+                        <tr>
+                            <td>Number - Decimal</td>
+                            <td>{{ e }}</td>
+                            <td>e | number:'1.2-2' </td>
+                            <td>{{ e | number:'1.2-2'  }}</td>
+                        </tr>
+                        <tr>
+                            <td>Moneda</td>
+                            <td>{{ precio }}</td>
+                            <td> precio | currency:'EUR' </td>
+                            <td>{{ precio | currency:'EUR' }}</td>
+                        </tr>
+                        <tr>
+                            <td>Fecha</td>
+                            <td>{{ fecha }}</td>
+                            <td> fecha |  date:'medium' </td>
+                            <td>{{ fecha |  date:'medium' }}</td>
+                        </tr>
+                        <tr>
+                            <td>Personalizado - Al revés</td>
+                            <td>{{ cadenaTexto }}</td>
+                            <td> cadenaTexto | alreves </td>
+                            <td>{{ cadenaTexto | alreves:true}}</td>
+                        </tr>
+                        
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

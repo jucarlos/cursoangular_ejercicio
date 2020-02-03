@@ -1,0 +1,47 @@
+
+
+
+<div *ngIf="vehiculos.length < 1" class="alert alert-info">
+    No hay vehículos registrados de este cliente
+</div>
+
+    <button 
+            [routerLink]="['/vehiculo/detalle', 'nuevo', clienteId ]"
+               class="btn btn-outline-primary">
+                Nuevo Vehículo
+    </button>
+    <p></p>
+
+
+ <table *ngIf="vehiculos.length > 0" 
+    class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th >#</th>
+            <th >Matrícula</th>
+            <th >Marca</th>
+            <th >Modelo</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let vehiculo of vehiculos; let i=index;">
+            <td class="w40 align-middle">{{ i + 1 }}</td>
+            <td class="w100">{{ vehiculo.matricula }}</td>
+            <td class="w100">{{ vehiculo.marca }}</td>
+            <td class="w150">{{ vehiculo.tipoVehiculo.nombre }} - {{ vehiculo.modelo }}</td>
+            <td class="w70 align-middle">
+                <button 
+                [routerLink]="['/vehiculo/detalle', 'editar', vehiculo._id ]"
+                class="btn btn-outline-primary btn-sm">
+                    <i class="fa fa-edit"></i>
+                </button>
+                <button 
+                (click) = "borrarVehiculo( vehiculo) "
+                class="btn btn-outline-danger btn-sm">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

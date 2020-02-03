@@ -1,0 +1,49 @@
+<div class="animated fadeIn card border-primary mb-3" style="width: 100%">
+    <div class="card-header">Clientes</div>
+        <div class="card-body text-primary">
+            <button 
+            
+            [routerLink]="['/clientes/detalle','nuevo']"
+            class="btn btn-outline-primary">
+                Nuevo Cliente
+            </button>
+            <hr/>
+        <h5 class="card-title">Listado Clientes (<small>{{clientes.length}}</small>)</h5>
+
+
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th >#</th>
+                    <th >Nombre</th>
+                    <th >Identificador</th>
+                    <th >email</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cliente of clientes; let i=index;">
+                    <td class="w40 align-middle">{{ i + 1 + desde}}</td>
+                    <td class="w150">{{cliente.nombre}}</td>
+                    <td class="w100">{{ cliente.identificador}}</td>
+                    <td class="w150">{{ cliente.email }}</td>
+                    <td class="w70 align-middle">
+                        <button 
+                        [routerLink]="['/clientes/detalle', cliente._id ]"
+                        class="btn btn-outline-primary btn-sm">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                        <button 
+                        (click)="borrarCliente( cliente )"
+                        class="btn btn-outline-danger btn-sm">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button (click)="cambiarDesde(-5)" class="btn btn-secondary">Anteriores</button>
+        <button (click)="cambiarDesde(5)" class="btn btn-secondary">Siguientes</button>
+     </div>
+
+</div>

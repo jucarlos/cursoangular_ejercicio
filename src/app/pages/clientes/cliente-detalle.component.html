@@ -1,0 +1,111 @@
+<div class="animated fadeIn card border-primary mb-3" style="width: 100%">
+ 
+ 
+  <div class="card-header">Clientes</div>
+
+<div class="row">
+  
+  <div class="col-md-7">
+    <div class="card-body text-primary">
+      <form (ngSubmit)="guardarCliente()">
+        <div class="form-group">
+          <label for="identificador" class="col-form-label">Identificador</label>
+          <div>
+            <input 
+            type="text" 
+            class="form-control" 
+            name="identificador" 
+            [(ngModel)]="cliente.identificador"
+            id="inputIdentificador">
+          </div>
+       </div>
+
+       <div class="form-group">
+        <label for="nombre" class="col-form-label">Nombre</label>
+        <div>
+          <input 
+          type="text" 
+          class="form-control" 
+          name="nombre" 
+          [(ngModel)]="cliente.nombre" 
+          id="inputNombre">
+        </div>
+     </div>
+
+     <div class="form-group">
+        <label for="email" class="col-form-label">Email</label>
+        <div>
+          <input 
+          type="email" 
+          class="form-control" 
+          name="email" 
+          [(ngModel)]="cliente.email" 
+          id="inputEmail">
+        </div>
+     </div>
+
+     <div class="row">
+                <div >
+                  <button class="btn btn-primary">{{ tituloBoton }}</button>
+                </div>
+                &nbsp;
+               <div >
+                   <button 
+                   [routerLink]="['/clientes']"
+                   class="btn btn-secondary">Cancelar</button>
+               </div>
+       </div>
+
+    </form>
+    </div>
+    
+    
+  </div>
+
+
+  <div class="col-md-5">
+  
+      <div class="card-body" align="center">
+          <h4 class="card-title">Foto del cliente</h4>
+          <h6 class="card-subtitle"></h6>
+
+          <img *ngIf="!imagenTemp" [src]="cliente.clouds | imagen:'clientes'" class="w150">
+          <img *ngIf="imagenTemp" [src]="imagenTemp" class="w150">
+
+          <input type="file" (change)="seleccionImagen( $event.target.files[0] )">
+          
+
+          <br>
+          <br>
+
+          <button 
+          (click)="cambiarImagen()" [disabled]="!imagenSubir"
+          type="button" class="btn btn-block btn-success waves-effect waves-light m-r-10">
+                  <i class="fa fa-save"></i> Actualizar Foto</button>
+
+      </div>
+  
+  </div>
+
+
+
+</div>
+
+<div class="row">
+  
+    <div class="card-body">
+      <h4 class="card-title">Sus vehículos</h4>
+      <app-vehiculos-cliente 
+      [clienteId]="idCliente"></app-vehiculos-cliente>
+    </div>
+  
+
+</div>
+
+
+
+  
+
+
+
+</div>

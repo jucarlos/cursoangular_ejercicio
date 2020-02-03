@@ -1,0 +1,25 @@
+<div class="animated fadeIn card border-primary mb-3" style="width: 100%">
+    <div class="card-header">{{ titulo }}</div>
+        <div class="card-body text-primary">
+           
+        <div class="row">
+            <div class="col-sm-12 col-xs-12">
+                <form ngNativeValidate #f="ngForm" (ngSubmit)="guardarTipoVehiculo( f )">
+                    <div class="form-group">
+                        <label>Tipo de Vehículo</label>
+                        <input [(ngModel)]="tipoVehiculo.nombre" 
+                        type="text" name="nombre" class="form-control"  placeholder="tipo de vehiculo..." required>
+                    </div>
+          
+                    <a routerLink="/tipovehiculos" class="btn btn-inverse">Cancelar</a>
+                    &nbsp;
+                    <button 
+                    type="submit" class="btn btn-success waves-effect waves-light m-r-10">
+                        <i class="fa fa-save"></i>
+                        {{tituloBoton}}
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+    </div>
