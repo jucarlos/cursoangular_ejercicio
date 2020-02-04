@@ -1,1 +1,54 @@
-<p>register works!</p>
+
+
+<div class="animated fadeIn row" style="width: 100%">
+    <div class="col-md-12">
+
+
+        <div class="card">
+            <div class="card-header">
+              Registro de usuarios
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Alta de usuarios</h5>
+    
+              <form #formulario="ngForm" ngNativeValidate (ngSubmit)="registrarUsuario(formulario)">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" 
+                    id="nombre" aria-describedby="emailHelp" 
+                    placeholder="nombre"
+                    minlength="5"
+                    required
+                    name="nombre"
+                    ngModel>
+                  </div>
+
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" name="email" 
+                  id="email" aria-describedby="email"
+                  name="email"
+                  ngModel
+                  required
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                  >
+                  <small id="email" class="form-text text-muted">No compartimos tu email con nadie</small>
+                </div>
+                <div class="form-group">
+                  <label for="password1">Password</label>
+                  <input type="password" class="form-control" id="password1" name="password1"  minlength="4" required ngModel>
+                </div>
+                <div class="form-group">
+                    <label for="password2">Repite el Password</label>
+                    <input type="password" class="form-control" id="password2" name="password2"  minlength="4" required ngModel>
+                  </div>
+                <button type="submit" 
+                [disabled]="!formulario.valid"
+                class="btn btn-primary">Registrar</button>
+              </form>
+    
+            </div>
+          </div>
+    </div>
+
+    </div>

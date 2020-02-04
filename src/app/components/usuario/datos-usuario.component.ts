@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from '../../models/usuario';
 
 @Component({
   selector: 'app-datos-usuario',
@@ -6,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class DatosUsuarioComponent implements OnInit {
+
+
+  imagen = '';
+
+
+  usuario: Usuario;
 
   constructor() { }
 

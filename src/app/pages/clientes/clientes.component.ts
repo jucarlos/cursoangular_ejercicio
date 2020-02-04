@@ -26,7 +26,7 @@ export class ClientesComponent implements OnInit {
     this.clienteService.getClientes(this.desde || 0)
       .subscribe( (resp: any) => {
         this.totalRegistros = resp.total;
-        this.clientes = resp;
+        this.clientes = resp.clientes;
       });
   }
 

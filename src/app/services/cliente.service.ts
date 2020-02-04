@@ -25,7 +25,8 @@ export class ClienteService {
     return this.http.get( url )
     .pipe(
       map ( (resp: any) => {
-        return resp.clientes;
+        //return resp.clientes;
+        return resp;
       })
     );
   }
