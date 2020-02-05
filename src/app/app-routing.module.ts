@@ -9,13 +9,13 @@ import { EdicionTipoVehiculoComponent } from './pages/tipo-vehiculo/edicion-tipo
 import { ClientesComponent } from './pages/clientes/clientes.component';
 import { ClienteDetalleComponent } from './pages/clientes/cliente-detalle.component';
 import { VehiculoClienteComponent } from './pages/clientes/vehiculo-cliente.component';
-import { LoginComponent } from './components/usuario/login.component';
 import { RegisterComponent } from './components/usuario/register.component';
+import { TallerComponent } from './pages/taller/taller.component';
+import { LoginGuard } from './guards/login.guard';
 
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent , data: { titulo: 'Inicio' } },
-  { path: 'login', component: LoginComponent , data: { titulo: 'Login' } },
   { path: 'registro', component: RegisterComponent , data: { titulo: 'Registro' } },
   { path: 'temario', component: TemarioComponent, data: { titulo: 'Temario' }  },
   { path: 'directivas', component: DirectivasComponent, data: { titulo: 'Directivas' } },
@@ -25,6 +25,7 @@ const routes: Routes = [
   { path: 'clientes', component: ClientesComponent ,  data: { titulo: 'Clientes' }},
   { path: 'clientes/detalle/:id', component: ClienteDetalleComponent, data: { titulo: 'Editando Clientes' }  },
   { path: 'vehiculo/detalle/:ope/:id', component: VehiculoClienteComponent, data: { titulo: 'Vehiculo de Clientes' }  },
+  { path: 'taller', component: TallerComponent, canActivate: [ LoginGuard ],  data: { titulo: 'Operaciones de taller' }  },
 
   { path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];

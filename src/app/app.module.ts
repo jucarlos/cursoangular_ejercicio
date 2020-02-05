@@ -29,8 +29,8 @@ import { VehiculoClienteComponent } from './pages/clientes/vehiculo-cliente.comp
 
 import { DatosUsuarioComponent } from './components/usuario/datos-usuario.component';
 import { RegisterComponent } from './components/usuario/register.component';
-import { LoginComponent } from './components/usuario/login.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { TallerComponent } from './pages/taller/taller.component';
 
 registerLocaleData(localeEs);
 
@@ -53,8 +53,8 @@ registerLocaleData(localeEs);
     VehiculoClienteComponent,
     DatosUsuarioComponent,
     RegisterComponent,
-    LoginComponent,
-    ModalComponent
+    ModalComponent,
+    TallerComponent
   ],
   imports: [
     BrowserModule,

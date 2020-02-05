@@ -8,15 +8,9 @@ import { ModalService } from '../../services/modal.service';
 })
 export class NavbarComponent implements OnInit {
 
-  tituloBoton = 'Sin identificar';
-
-  constructor(private modalService: ModalService) { }
+  constructor(public modalService: ModalService) { }
 
   ngOnInit() {
-    this.modalService._notificarUsuarioLogeado
-    .subscribe( resp => {
-        this.tituloBoton = resp;
-    });
   }
 
   abrirModal() {
