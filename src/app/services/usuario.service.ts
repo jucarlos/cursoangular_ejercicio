@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Usuario } from '../models/usuario';
 import { URL_SERVICIOS } from '../../environments/environment';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
@@ -16,6 +16,7 @@ export class UsuarioService {
   usuario: Usuario = new Usuario('', '', '');
   token = '';
 
+  
   httpHeaders = new HttpHeaders(
     {'Content-Type': 'application/json'}
   );
@@ -23,10 +24,14 @@ export class UsuarioService {
   constructor( private http: HttpClient, private modalService: ModalService) {
     this.cargarStorage();
     if ( this.estaAutenticado()) {
-      this.modalService._notificarUsuarioLogeado.emit( this.usuario.nombre);
+      console.log('SI', this.usuario.nombre);
+    } else {
+      this.usuario = new Usuario('', '', '');
+      console.log('NO');
     }
 
   }
+
 
 
   obtenerDatosToken(): any {
@@ -59,9 +64,9 @@ export class UsuarioService {
 
     const now = new Date().getTime() / 1000;
 
-    console.log( 'Fecha actual: ', new Date(now * 1000));
-    console.log ( exp);
-    console.log( 'Fecha caduda: ', new Date(exp * 1000));
+    // console.log( 'Fecha actual: ', new Date(now * 1000));
+    // console.log ( exp);
+    // console.log( 'Fecha caduda: ', new Date(exp * 1000));
 
     if (exp < now) {
       return true;

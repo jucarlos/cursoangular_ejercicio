@@ -6,9 +6,11 @@ import { Injectable, EventEmitter } from '@angular/core';
 export class ModalService {
 
 
+  _notificarUsuarioLogeado = new EventEmitter<any>();
+
+
   modal = false;
 
-  _notificarUsuarioLogeado = new EventEmitter<any>();
 
   constructor() { }
 

@@ -47,12 +47,14 @@
         
         
           <button (click)="abrirModal()"
+          *ngIf="!usuarioService.estaAutenticado()"
           type="button" 
           class="btn btn-outline-success btn-sm mx-2" 
           data-toggle="modal"
            data-target="#exampleModal">Entrar</button>
           
            <button  
+           *ngIf="usuarioService.estaAutenticado()"
            class="btn btn-outline-success btn-sm"  type="button">Salir</button>
          
       </div>
