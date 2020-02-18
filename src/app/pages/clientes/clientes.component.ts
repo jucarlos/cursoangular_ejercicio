@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClienteService } from '../../services/cliente.service';
 import { Cliente } from '../../models/cliente';
 import Swal from 'sweetalert2';
+import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
   selector: 'app-clientes',
@@ -14,15 +15,38 @@ export class ClientesComponent implements OnInit {
   clientes: Cliente[] = [];
   totalRegistros = 0;
   desde = 0;
+  termino = '';
 
-  constructor(private clienteService: ClienteService) { }
+  constructor(private clienteService: ClienteService, public usuarioService: UsuarioService) { }
 
   ngOnInit() {
     this.cargarClientes();
 
   }
 
+
+  buscarCliente( ) {
+
+    if ( this.termino.length <= 0 ) {
+      this.cargarClientes();
+      return;
+    }
+
+    if ( this.termino.length > 3 ) {
+          this.clienteService.buscarClientes( this.termino )
+            .subscribe ( (resp: any ) =>  {
+              this.clientes = resp.clientes;
+              this.totalRegistros = this.clientes.length;
+            });
+    }
+
+    return;
+
+  }
+
   cargarClientes() {
+
+    this.termino = '';
     this.clienteService.getClientes(this.desde || 0)
       .subscribe( (resp: any) => {
         this.totalRegistros = resp.total;
@@ -61,6 +85,8 @@ export class ClientesComponent implements OnInit {
         });
       }
     });
+
+    this.termino = '';
 
   }
 

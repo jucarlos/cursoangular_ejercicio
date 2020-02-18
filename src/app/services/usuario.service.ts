@@ -16,7 +16,6 @@ export class UsuarioService {
   usuario: Usuario = new Usuario('', '', '');
   token = '';
 
-  
   httpHeaders = new HttpHeaders(
     {'Content-Type': 'application/json'}
   );
@@ -33,6 +32,11 @@ export class UsuarioService {
   }
 
 
+  logout() {
+    this.borrarStorage();
+    this.modalService.notificarUsuarioLogeado.emit('');
+  }
+
 
   obtenerDatosToken(): any {
 
@@ -46,7 +50,7 @@ export class UsuarioService {
   estaAutenticado() {
 
     const payload: any = this.obtenerDatosToken();
-    
+
     if ( payload != null && payload.usuario.nombre.length > 3 && payload.usuario.nombre === this.usuario.nombre ) {
 
       if ( this.isTokenExpirado( payload.exp )) {
@@ -100,6 +104,15 @@ export class UsuarioService {
     localStorage.setItem('usuario', JSON.stringify( usuario ));
     this.usuario = usuario;
     this.token = token;
+  }
+
+  borrarStorage() {
+    localStorage.removeItem('nombre');
+    localStorage.removeItem('token');
+    localStorage.removeItem('usuario');
+    this.usuario = new Usuario('', '', '');
+    this.token = '';
+    this.borrarStorageEmail();
   }
 
   login( usuario: Usuario, recuerdame: boolean  ) {

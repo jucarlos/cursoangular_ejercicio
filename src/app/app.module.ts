@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { LOCALE_ID } from '@angular/core';
 
@@ -31,6 +31,8 @@ import { DatosUsuarioComponent } from './components/usuario/datos-usuario.compon
 import { RegisterComponent } from './components/usuario/register.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { TallerComponent } from './pages/taller/taller.component';
+import { FormularioHtmlComponent } from './pages/formularios/formulario-html.component';
+import { FormularioTsComponent } from './pages/formularios/formulario-ts.component';
 
 registerLocaleData(localeEs);
 
@@ -54,13 +56,16 @@ registerLocaleData(localeEs);
     DatosUsuarioComponent,
     RegisterComponent,
     ModalComponent,
-    TallerComponent
+    TallerComponent,
+    FormularioHtmlComponent,
+    FormularioTsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'es-ES' }

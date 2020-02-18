@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { URL_SERVICIOS } from '../../environments/environment';
 import { Cliente } from '../models/cliente';
 import { SubirArchivoService } from './subir-archivo.service';
+import { UsuarioService } from './usuario.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,29 @@ export class ClienteService {
 
 
   constructor(private http: HttpClient,
-              private subirArchivoService: SubirArchivoService) { }
+              private subirArchivoService: SubirArchivoService,
+              private usuarioService: UsuarioService) { }
+
+
+
+
+
+  // este método tiene que llevar el token
+  buscarClientes( termino: string ) {
+
+    // Si no  lo borro lo añade siempre y a la segunda, da error.
+    this.httpHeaders = this.httpHeaders.delete('token');
+    this.httpHeaders = this.httpHeaders.append( 'token', this.usuarioService.token);
+
+    const url = `${URL_SERVICIOS}/buscar/clientes/${termino}`;
+    return this.http.get( url,  { headers: this.httpHeaders } )
+    .pipe(
+      map ( (resp: any) => {
+        return resp;
+      })
+    );
+
+  }
 
 
   getClientes(desde = 0 ) {

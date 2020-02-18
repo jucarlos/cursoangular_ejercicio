@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
 import { UsuarioService } from '../services/usuario.service';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +16,12 @@ export class LoginGuard implements CanActivate {
 
     if ( this.usuarioService.estaAutenticado() ) {
       console.log('Pasando por LoginGuard AUTENTICADO');
+      return true;
     } else {
       console.log('Pasando por LoginGuard NO AUTENTICADO');
+      Swal.fire('Autenticación', 'Tienes que estar autenticado para ver este recurso', 'info');
+      return false;
     }
-
-    return true;
   }
 
 }

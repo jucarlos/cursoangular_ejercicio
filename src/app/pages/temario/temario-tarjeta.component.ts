@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Tema } from '../../models/tema';
 
 @Component({
@@ -12,9 +12,18 @@ export class TemarioTarjetaComponent implements OnInit {
   @Input() i ;
   @Input() temaTarjeta;
 
+  @Output() cambiaMeGusta: EventEmitter<number> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
   }
+
+  meGusta() {
+
+    this.cambiaMeGusta.emit(1);
+
+  }
+
 
 }

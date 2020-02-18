@@ -12,6 +12,8 @@ import { VehiculoClienteComponent } from './pages/clientes/vehiculo-cliente.comp
 import { RegisterComponent } from './components/usuario/register.component';
 import { TallerComponent } from './pages/taller/taller.component';
 import { LoginGuard } from './guards/login.guard';
+import { FormularioHtmlComponent } from './pages/formularios/formulario-html.component';
+import { FormularioTsComponent } from './pages/formularios/formulario-ts.component';
 
 
 const routes: Routes = [
@@ -26,6 +28,8 @@ const routes: Routes = [
   { path: 'clientes/detalle/:id', component: ClienteDetalleComponent, data: { titulo: 'Editando Clientes' }  },
   { path: 'vehiculo/detalle/:ope/:id', component: VehiculoClienteComponent, data: { titulo: 'Vehiculo de Clientes' }  },
   { path: 'taller', component: TallerComponent, canActivate: [ LoginGuard ],  data: { titulo: 'Operaciones de taller' }  },
+  { path: 'formulario-html', component: FormularioHtmlComponent,  data: { titulo: 'Formulario Html' }  },
+  { path: 'formulario-ts', component: FormularioTsComponent, data: { titulo: 'Formulario TS' }  },
 
   { path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];

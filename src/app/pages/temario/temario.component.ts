@@ -34,6 +34,8 @@ export class TemarioComponent implements OnInit {
 
   temario: Tema[] = [];
 
+  meGustan = 0;
+
   constructor(public temaService: TemarioService) { }
 
   ngOnInit() {
@@ -45,6 +47,10 @@ export class TemarioComponent implements OnInit {
     .subscribe( data => {
       this.temario = data;
     });
+  }
+
+  cambiaMegusta( evento ) {
+    this.meGustan++;
   }
 
 
