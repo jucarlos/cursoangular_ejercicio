@@ -21,8 +21,20 @@ export const TEMARIO: Tema[] = [
         contenido: 'Los pipes se utilizan para cambiar la forma en la que se presentan los datos. No los cambian.'
     },
     {
-        titulo: 'Mejoras',
-        contenido: 'El hash en las rutas.'
+        titulo: 'Formularios',
+        contenido: 'Un poco de formularios. Control en el html y en el ts.'
+    },
+    {
+        titulo: 'Optimizaciones',
+        contenido: 'Hacer módulos por tipo de componentes'
+    },
+    {
+        titulo: 'Autenticación',
+        contenido: 'Registro y Login de usuarios'
+    },
+    {
+        titulo: 'Firebase',
+        contenido: 'Desplegamos en firebase'
     }
 
 
