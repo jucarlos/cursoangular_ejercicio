@@ -14,6 +14,7 @@ import { FormularioHtmlComponent } from './pages/formularios/formulario-html.com
 import { FormularioTsComponent } from './pages/formularios/formulario-ts.component';
 import { TemarioComponent } from './pages/temario/temario.component';
 import { DirectivasComponent } from './pages/directivas/directivas.component';
+import { AngularMaterialComponent } from './pages/angular-material/angular-material.component';
 
 
 
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'clientes', component: ClientesComponent ,  data: { titulo: 'Clientes' }},
   { path: 'clientes/detalle/:id', component: ClienteDetalleComponent, data: { titulo: 'Editando Clientes' }  },
   { path: 'vehiculo/detalle/:ope/:id', component: VehiculoClienteComponent, data: { titulo: 'Vehiculo de Clientes' }  },
+  { path: 'angular-material', component: AngularMaterialComponent, data: { titulo: 'Angular Material' }  },
   { path: 'taller', component: TallerComponent, canActivate: [ LoginGuard ],  data: { titulo: 'Operaciones de taller' }  },
   { path: 'formulario-html', component: FormularioHtmlComponent,  data: { titulo: 'Formulario Html' }  },
   { path: 'formulario-ts', component: FormularioTsComponent, data: { titulo: 'Formulario TS' }  },

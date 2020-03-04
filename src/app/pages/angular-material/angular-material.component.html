@@ -1,0 +1,14 @@
+<div class="card animated fadeIn" style="width: 100%">
+    <div class="card-body">
+      <h5 class="card-title">Ejemplo de Angular Material </h5>
+      <p class="card-text">Este ejemplo es un input con un snack-bar</p>
+      <mat-form-field>
+        <mat-label>Duración en segundos</mat-label>
+        <input type="number" [(ngModel)]="durationInSeconds" matInput>
+      </mat-form-field>
+      <div>
+          <button class="btn btn-outline-info"
+          (click)="openSnackBar('Pues un mensaje', 'OK')">Prueba el mensaje</button>
+      </div>
+    </div>
+  </div>

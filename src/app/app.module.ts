@@ -18,6 +18,8 @@ import { RegisterComponent } from './components/usuario/register.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { PagesModule } from './pages/pages.module';
 import { PipesModule } from './pipes/pipes.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 
 registerLocaleData(localeEs);
 
@@ -35,10 +37,13 @@ registerLocaleData(localeEs);
     AppRoutingModule,
     HttpClientModule,
     PipesModule,
-    PagesModule
+    PagesModule,
+    BrowserAnimationsModule,
   ],
   providers: [
-    {provide: LOCALE_ID, useValue: 'es-ES' }
+    { provide: LOCALE_ID, useValue: 'es-ES' },
+    // para que salga gris
+    // { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
   ],
   bootstrap: [AppComponent]
 })

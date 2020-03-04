@@ -17,7 +17,10 @@ import { PipesModule } from '../pipes/pipes.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
-
+import { AngularMaterialComponent } from './angular-material/angular-material.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,9 @@ import { AppRoutingModule } from '../app-routing.module';
     VehiculoClienteComponent,
     TallerComponent,
     FormularioHtmlComponent,
-    FormularioTsComponent
+    FormularioTsComponent,
+    AngularMaterialComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -42,6 +47,9 @@ import { AppRoutingModule } from '../app-routing.module';
     ReactiveFormsModule,
     PipesModule,
     CommonModule,
+    MatSnackBarModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   exports: [
     FormsModule,
