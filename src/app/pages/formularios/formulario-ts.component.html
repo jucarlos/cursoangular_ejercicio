@@ -13,7 +13,7 @@
                   <div class="col-sm-8 ">
                         <input type="text" class="form-control  " 
                         [ngClass]="
-                        { 'is-invalid' : formulario.get('nombre').invalid,
+                        { 'is-invalid' : formulario.get('nombre').invalid && formulario.get('nombre').touched,
                           'is-valid' : formulario.valid }"
                         placeholder="Nombre"
                         formControlName="nombre">
