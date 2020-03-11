@@ -8,6 +8,7 @@
               </div>
             <button 
             (click)="crearTipoVehiculo()"
+            [disabled]="!usuarioService.estaAutenticado()"
             class="btn btn-outline-primary">
                 Nuevo Tipo de Vehículo
             </button>

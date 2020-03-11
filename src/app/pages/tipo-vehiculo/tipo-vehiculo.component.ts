@@ -23,15 +23,17 @@ export class TipoVehiculoComponent implements OnInit {
     private tipoVehiculoService: TipoVehiculoService,
     private router: Router) {
 
-      this.modalService._notificarUsuarioLogeado
+   }
+
+  ngOnInit() {
+
+    this.modalService._notificarUsuarioLogeado
       .subscribe( (resp: string) => {
         if ( resp === 'acceso') {
           this.cargarTiposVehiculos();
         }
-    });
-    }
+      });
 
-  ngOnInit() {
     if ( this.usuarioService.estaAutenticado() ){
       this.cargarTiposVehiculos();
     }
