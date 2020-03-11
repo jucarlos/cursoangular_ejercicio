@@ -12,6 +12,7 @@ import { ModalService } from './modal.service';
 })
 export class UsuarioService {
 
+
   // Estas propiedades, para luego saber si está logueado.
   usuario: Usuario = new Usuario('', '', '');
   token = '';
@@ -132,6 +133,8 @@ export class UsuarioService {
         } else  {
           this.borrarStorageEmail();
         }
+
+        this.modalService.notificarUsuarioLogeado.emit('acceso');
 
 
         return data;

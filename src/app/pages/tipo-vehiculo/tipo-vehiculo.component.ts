@@ -4,6 +4,8 @@ import { TipoVehiculoService } from '../../services/tipo-vehiculo.service';
 import { Router } from '@angular/router';
 
 import Swal from 'sweetalert2';
+import { UsuarioService } from '../../services/usuario.service';
+import { ModalService } from '../../services/modal.service';
 
 
 @Component({
@@ -16,14 +18,24 @@ export class TipoVehiculoComponent implements OnInit {
   tipoVehiculos: TipoVehiculo[] = [] ;
 
   constructor(
+    public usuarioService: UsuarioService,
+    private modalService: ModalService,
     private tipoVehiculoService: TipoVehiculoService,
-    private router: Router) { }
+    private router: Router) {
+
+      this.modalService._notificarUsuarioLogeado
+      .subscribe( (resp: string) => {
+        if ( resp === 'acceso') {
+          this.cargarTiposVehiculos();
+        }
+    });
+    }
 
   ngOnInit() {
-    this.cargarTiposVehiculos();
+    if ( this.usuarioService.estaAutenticado() ){
+      this.cargarTiposVehiculos();
+    }
   }
-
-
 
   editarTipoVehiculo( tv: TipoVehiculo ) {
     this.router.navigate(['/tipovehiculo', tv._id ]);
@@ -77,6 +89,8 @@ export class TipoVehiculoComponent implements OnInit {
     .subscribe( (resp: any) => {
       this.tipoVehiculos = resp.tipoVehiculos;
     });
+
+
   }
 
 }

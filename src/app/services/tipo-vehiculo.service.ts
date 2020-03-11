@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { TipoVehiculo } from '../models/tipo-vehiculo';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { URL_SERVICIOS } from '../../environments/environment';
-import { Observable } from 'rxjs';
+import { UsuarioService } from './usuario.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +12,19 @@ export class TipoVehiculoService {
 
   // No hace falta ponerlo , pero mejor lo dejamos.
   httpHeaders = new HttpHeaders(
-    {'Content-Type': 'application/json'}
+    {
+      'Content-Type': 'application/json',
+       token: this.usuarioService.token,
+    }
   );
 
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private usuarioService: UsuarioService
+    ) {
+
+    }
 
   // realmente la respuesto no es del todo así, porque vienen mas cosas.
   // por eso , utilizareé otro método
@@ -31,7 +39,7 @@ export class TipoVehiculoService {
   getTipoVehiculo( id: string ) {
 
     const url = URL_SERVICIOS + '/tipovehiculo' + '/' + id ;
-    return this.http.get( url );
+    return this.http.get( url, { headers: this.httpHeaders } );
 
   }
 
@@ -39,7 +47,7 @@ export class TipoVehiculoService {
   getTipoVehiculos() {
 
     const url = URL_SERVICIOS + '/tipovehiculo';
-    return this.http.get( url );
+    return this.http.get( url , { headers: this.httpHeaders } );
 
   }
 
@@ -59,7 +67,7 @@ export class TipoVehiculoService {
   borrarTipoVehiculo( id: string ) {
 
     const url = URL_SERVICIOS + '/tipovehiculo' + '/' + id ;
-    return this.http.delete( url );
+    return this.http.delete( url, { headers: this.httpHeaders } );
   }
 
 
