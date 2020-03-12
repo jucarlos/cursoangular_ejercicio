@@ -67,7 +67,8 @@ export class TipoVehiculoComponent implements OnInit {
             } else {
               Swal.fire(
                 'Error!',
-                `Error al borrar ${tv.nombre}`,
+                `Error al borrar ${tv.nombre}<br/>
+                ${resp.mensaje}`,
                 'error'
               );
             }
